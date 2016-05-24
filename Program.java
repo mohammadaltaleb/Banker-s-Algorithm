@@ -1,3 +1,9 @@
+/*
+ * Programmer: Mohammad Altaleb
+ * e-mail: mohammadaltaleb@gmail.com
+ * description: this is the class that contains the main method, and it carries the key functionality
+*/
+
 package container;
 
 import java.io.FileNotFoundException;
@@ -47,6 +53,10 @@ public class Program
 		return safe;
 	}
 	
+	// this method is responsible for the repairing and ending of the deadlock by
+	// releasing the instanses allocated by one process, if it didn't work,
+	// it re-allocate the resources released before, then switch to the next process
+	// and repeat the operation.
 	public static void repair()
 	{
 		for(int i = 0, n = allocation.length; i < n; i++)
@@ -78,9 +88,9 @@ public class Program
 	
 	public static void main(String[] args) throws FileNotFoundException 
 	{
-		MatrixOperations.readMatrices("matrices3.in");			// reading the file containing algorithm's inputs
-		MatrixOperations.calculateNeed();					// calculating need matrix
-		MatrixOperations.calculateAvailable();				// calculating available instances
+		MatrixOperations.readMatrices("matrices.in");		// reading the file containing algorithm's inputs
+		MatrixOperations.calculateNeed();			// calculating need matrix
+		MatrixOperations.calculateAvailable();			// calculating available instances
 
 		if(runAlgorithm())
 		{
