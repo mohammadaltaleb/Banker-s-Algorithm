@@ -1,3 +1,10 @@
+/*
+ * Programmer: Mohammad Altaleb
+ * e-mail: mohammadaltaleb@gmail.com
+ * description: this class holds the matrices operations to help the (Program) class performing
+ * 		some needed matrices manipulations.
+*/
+
 package container;
 
 import java.io.File;
