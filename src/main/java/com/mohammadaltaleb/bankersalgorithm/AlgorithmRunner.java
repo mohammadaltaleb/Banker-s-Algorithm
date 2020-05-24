@@ -1,8 +1,7 @@
 package com.mohammadaltaleb.bankersalgorithm;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.net.URL;
+import java.io.InputStream;
 import java.util.Scanner;
 
 class AlgorithmRunner {
@@ -88,13 +87,12 @@ class AlgorithmRunner {
     }
 
     private void readMatrices(String matricesFileName) throws FileNotFoundException {
-        ClassLoader classLoader = AlgorithmRunner.class.getClassLoader();
-        URL fileUrl = classLoader.getResource(matricesFileName);
-        if (fileUrl == null) {
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(matricesFileName);
+        if (inputStream == null) {
             throw new FileNotFoundException(
                     String.format("Matrices file (%s) was not found in resources", matricesFileName));
         }
-        Scanner scanner = new Scanner(new File(fileUrl.getFile()));
+        Scanner scanner = new Scanner(inputStream);
         processCount = scanner.nextInt();
         resourceCount = scanner.nextInt();
         allocation = new int[processCount][resourceCount];
